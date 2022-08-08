@@ -8,7 +8,7 @@ const {
 const router = express.Router();
 
 router.get("/articles", getArticles);
-router.post("/a/:id", getOneArticle);
+router.get("/a/:id", getOneArticle);
 router.post("/add-article", addArticle);
 
 module.exports = router;
