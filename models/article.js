@@ -21,6 +21,10 @@ const ArticleSchema = new Schema({
 		required: true,
 		trim: true,
 	},
+	isModerated: {
+		type: Boolean,
+		default: false,
+	},
 });
 
 module.exports = mongoose.model("Article", ArticleSchema);

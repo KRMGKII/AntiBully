@@ -3,6 +3,7 @@ const {
 	getArticles,
 	getOneArticle,
 	addArticle,
+	moderateArt,
 } = require("../controllers/article");
 
 const router = express.Router();

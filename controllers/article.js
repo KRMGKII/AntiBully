@@ -1,5 +1,5 @@
+const { $where } = require("../models/article");
 const article = require("../models/article");
-const nodemailer = require("nodemailer");
 
 exports.addArticle = async (req, res) => {
 	const { title, brief, body, author } = req.body;
@@ -20,8 +20,8 @@ exports.addArticle = async (req, res) => {
 
 exports.getArticles = async (req, res) => {
 	try {
-		const articles = await article.find({});
-		res.send(articles);
+		const articles = await article.find({ isModerated: { $eq: true } });
+		res.send({ articles });
 	} catch (e) {
 		res.status(500).send(e);
 	}
@@ -34,5 +34,15 @@ exports.getOneArticle = async (req, res) => {
 		return res.send(r);
 	} catch (e) {
 		return res.status(404).send(e);
+	}
+};
+
+exports.moderateArt = async (req, res) => {
+	const { id } = req.body;
+	try {
+		await article.findByIdAndUpdate(id, { $set: { isModerated: true } });
+		res.status(200).send({ ok: true });
+	} catch (err) {
+		res.status(200).send({ error: err });
 	}
 };
