@@ -2,12 +2,12 @@
   <div class="container">
     <div
       style="margin-bottom: 0; padding-bottom: 0"
-      class="report-buttons secondary container-body"
+      class="report-buttons u-full-width secondary container-body"
     >
       <h5 style="margin-top: 0; padding-top: 0" class="primary-color tac">
         Want to report? Feel free!
       </h5>
-      <p class="primary-color tac">(* Your identity won't be revealed *)</p>
+      <b class="primary-color tac">(Your identity won't be revealed)</b>
       <form>
         <div class="row">
           <div class="six columns">
@@ -43,6 +43,7 @@
         </div>
         <div class="row">
           <label class="primary-color">What actually happened?</label>
+
           <textarea
             [(ngModel)]="incidentDesc"
             [ngModelOptions]="{ standalone: true }"
