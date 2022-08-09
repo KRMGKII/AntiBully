@@ -27,6 +27,15 @@ exports.getArticles = async (req, res) => {
 	}
 };
 
+exports.getAllArticles = async (req, res) => {
+	try {
+		const articles = await article.find({ isModerated: { $eq: false } });
+		res.send({ articles });
+	} catch (e) {
+		res.status(500).send(e);
+	}
+};
+
 exports.getOneArticle = async (req, res) => {
 	try {
 		const id = req.params.id;
@@ -37,12 +46,22 @@ exports.getOneArticle = async (req, res) => {
 	}
 };
 
-exports.moderateArt = async (req, res) => {
+exports.deleteArt = async (req, res) => {
+	const { id } = req.body;
+	try {
+		await article.findOneAndRemove(id);
+		return res.status(200).send({ ok: true });
+	} catch (err) {
+		return res.status(500).send({ error: err });
+	}
+};
+
+exports.acceptArt = async (req, res) => {
 	const { id } = req.body;
 	try {
 		await article.findByIdAndUpdate(id, { $set: { isModerated: true } });
-		res.status(200).send({ ok: true });
+		return res.status(200).send({ ok: true });
 	} catch (err) {
-		res.status(200).send({ error: err });
+		return res.status(200).send({ error: err });
 	}
 };

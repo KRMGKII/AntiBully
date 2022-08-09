@@ -35,3 +35,13 @@ exports.getOneReport = async (req, res) => {
 		return res.status(404).send(e);
 	}
 };
+
+exports.deleteReport = async (req, res) => {
+	const { id } = req.body;
+	try {
+		await report.findByIdAndRemove(id);
+		return res.status(200).send({ ok: true });
+	} catch (err) {
+		return res.status(500).send({ error: err });
+	}
+};
