@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import { ReportsComponent } from './pages/reports/reports.component';
+import { RemoveArtComponent } from './pages/remove-art/remove-art.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ReportsComponent } from './pages/reports/reports.component';
     NavComponent,
     ArticlesComponent,
     ReportsComponent,
+    RemoveArtComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

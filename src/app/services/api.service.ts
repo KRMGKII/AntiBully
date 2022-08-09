@@ -12,6 +12,10 @@ export class ApiService {
     return this.http.get(`${environment.api}all-articles`);
   }
 
+  getAllArticles() {
+    return this.http.get(`${environment.api}articles`);
+  }
+
   getReports() {
     return this.http.get(`${environment.api}reports`);
   }
