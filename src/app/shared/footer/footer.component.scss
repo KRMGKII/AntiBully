@@ -1,0 +1,25 @@
+@import "../../../styles/colors";
+@import "../../../styles/globals";
+
+.footer {
+  padding: 1.5em;
+  position: relative;
+  bottom: 0;
+  * {
+    color: $primary;
+  }
+}
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5em;
+    max-height: calc($header_height - 1em) !important;
+  }
+}
