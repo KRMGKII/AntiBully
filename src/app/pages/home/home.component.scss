@@ -41,3 +41,6 @@
     margin-bottom: 0;
   }
 }
+.gutter:not(:last-child) {
+  margin-bottom: 1.5em;
+}
